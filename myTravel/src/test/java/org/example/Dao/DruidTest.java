@@ -16,7 +16,7 @@ public class DruidTest {
         //获取连接
         Connection connection=getConnection();
         //打印
-        System.out.println(connection);
+//        System.out.println(connection);
     }
 
     private Connection getConnection() throws Exception {
@@ -24,7 +24,7 @@ public class DruidTest {
         InputStream inputStream=DruidTest.class.getResourceAsStream("/druid.properties");
         Properties properties=new Properties();
         properties.load(inputStream);
-        System.out.println(properties.getProperty("druid.username"));
+//        System.out.println(properties.getProperty("druid.username"));
         //2.设置Druid对象
         DruidDataSource source= (DruidDataSource)DruidDataSourceFactory.createDataSource(properties);
 

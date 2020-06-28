@@ -4,17 +4,10 @@ import org.example.bean.User;
 
 import java.util.Scanner;
 
-public class MyScreen {
-    //清屏
-    public static void clear(){
-        try{
-            new ProcessBuilder("cmd","/c","cls").inheritIO().start().waitFor();
+public class MyScreen extends BaseScreen{
 
-        }catch (Exception e){
-
-        }
-    }
     public void showLogin() {
+        //这边继承了父类的清屏方法
         clear();
         System.out.println("===========欢迎来到，登录界面！！！===========");
 

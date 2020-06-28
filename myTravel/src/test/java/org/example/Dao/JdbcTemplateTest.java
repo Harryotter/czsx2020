@@ -16,7 +16,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Properties;
 
-public class JdbcTempldateTest {
+public class JdbcTemplateTest {
     //定义一个成员变量，被所有方法访问
     //类名 对象名
     JdbcTemplate jdbcTemplate=null;
@@ -92,7 +92,7 @@ public class JdbcTempldateTest {
         InputStream inputStream=DruidTest.class.getResourceAsStream("/druid.properties");
         Properties properties=new Properties();
         properties.load(inputStream);
-        System.out.println(properties.getProperty("druid.username"));
+//        System.out.println(properties.getProperty("druid.username"));
 
         //2.设置Druid对象
         DruidDataSource source= (DruidDataSource) DruidDataSourceFactory.createDataSource(properties);

@@ -16,14 +16,14 @@ public class Demo1 {
     }
     public static void main(String[] args) {
         String time=getNowTime();
-        System.out.println(time);
+//        System.out.println(time);
         Timer timer=new Timer();
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
                 clear();
                 String time=getNowTime();
-                System.out.println(time);
+//                System.out.println(time);
             }
         },1000, 1000);
 
