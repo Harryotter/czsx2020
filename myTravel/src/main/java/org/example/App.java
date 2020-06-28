@@ -2,7 +2,10 @@ package org.example;
 
 import org.example.bean.User;
 import org.example.p01web.MyScreen;
+import org.example.p01web.UserRegisterScreen;
 import org.example.p02service.UserService;
+
+import static org.example.Demo1.clear;
 
 /**
  * Hello world!
@@ -10,7 +13,7 @@ import org.example.p02service.UserService;
  */
 public class App 
 {
-    public static void main( String[] args ) {
+    public static void main1( String[] args ) {
         for(int i=0;i<3;i++){
             //1.显示登陆界面
             MyScreen myScreen = new MyScreen();
@@ -31,6 +34,23 @@ public class App
                 e.printStackTrace();
             }
         }
+
+
+
+
+    }
+    public static void main( String[] args ) throws Exception {
+        clear();
+        //显示界面
+        UserRegisterScreen userRegisterScreen=new UserRegisterScreen();
+        userRegisterScreen.show();
+        //显示数据
+        //获取数据
+        User user=userRegisterScreen.getData();
+        //调用register方法
+        UserService userService=new UserService();
+        int code=userService.register(user);
+        userRegisterScreen.showResult(code);
 
 
 
