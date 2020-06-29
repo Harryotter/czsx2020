@@ -1,9 +1,14 @@
 package org.example;
 
+import org.example.bean.Category;
 import org.example.bean.User;
+import org.example.p01web.CategoryScreen;
 import org.example.p01web.MyScreen;
 import org.example.p01web.UserRegisterScreen;
+import org.example.p02service.CategoryService;
 import org.example.p02service.UserService;
+
+import java.util.List;
 
 import static org.example.Demo1.clear;
 
@@ -39,7 +44,7 @@ public class App
 
 
     }
-    public static void main( String[] args ) throws Exception {
+    public static void main2( String[] args ) throws Exception {
         clear();
         //显示界面
         UserRegisterScreen userRegisterScreen=new UserRegisterScreen();
@@ -54,5 +59,14 @@ public class App
 
 
 
+    }
+    public static void main(String[] args ) throws Exception {
+        //
+        CategoryScreen categoryScreen=new CategoryScreen();
+        categoryScreen.show();
+
+        CategoryService categoryService=new CategoryService();
+        List<Category> list = categoryService.findAll();
+        categoryScreen.show(list);
     }
 }
