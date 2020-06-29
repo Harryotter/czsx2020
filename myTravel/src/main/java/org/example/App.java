@@ -1,12 +1,15 @@
 package org.example;
 
 import org.example.bean.Category;
+import org.example.bean.Route;
 import org.example.bean.User;
 import org.example.p01web.CategoryScreen;
 import org.example.p01web.MyScreen;
 import org.example.p01web.UserRegisterScreen;
 import org.example.p02service.CategoryService;
+import org.example.p02service.RouteService;
 import org.example.p02service.UserService;
+import org.springframework.util.RouteMatcher;
 
 import java.util.List;
 
@@ -61,12 +64,19 @@ public class App
 
     }
     public static void main(String[] args ) throws Exception {
-        //
+        //显示界面
         CategoryScreen categoryScreen=new CategoryScreen();
         categoryScreen.show();
-
+        //调用业务逻辑层的方法获取数据
         CategoryService categoryService=new CategoryService();
         List<Category> list = categoryService.findAll();
         categoryScreen.show(list);
+
+        //输入整数cid，显示该分类下的路线信息
+        int cid=categoryScreen.getCid();
+        //调用业务逻辑层中业务方法获取该分类下的路线信息
+        RouteService routeService=new RouteService();
+        List<Route> routeList=routeService.findRoutesByCid(cid);
+        categoryScreen.showRoutes(routeList);
     }
 }
