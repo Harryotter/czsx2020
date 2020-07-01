@@ -1,9 +1,17 @@
 package org.example;
 
+import org.example.p01web.BrandScreen;
 import org.example.p01web.UserRegisterScreen;
 import org.example.p01web.MyScreen;
+import org.example.p02service.BrandService;
+import org.example.p02service.ClothService;
 import org.example.p02service.UserService;
+import org.example.p04bean.Brand;
+import org.example.p04bean.Cloth;
+import org.example.p04bean.PageBean;
 import org.example.p04bean.User;
+
+import java.util.List;
 
 import static org.example.p01web.BaseScreen.clear;
 
@@ -62,9 +70,50 @@ public class App
 //        }
 
     }
-    public static void main5( String[] args )
-    {
+    public static void main( String[] args ) throws Exception {
+        //创建一个品牌分类界面并且显示
+        BrandScreen brandScreen=new BrandScreen();
+        brandScreen.show();
+        //获取数据显示在品牌分类界面
+        BrandService brandService=new BrandService();
+        List<Brand> list=brandService.findAll();
+        //显示
+        brandScreen.show(list);
 
-//        System.out.println( "Hello World!" );
+        //输入一个品牌代表id，显示该品牌旗下的汉服服装
+        int bid=brandScreen.getBid();
+        //调用汉服服装类的业务方法查询该品牌下的汉服
+        ClothService clothService = new ClothService();
+        //使用分页业务逻辑
+        int pageSize=3;
+        int currpage=-1;
+        PageBean<Cloth> pageBean=null;
+        while(true){
+            if(currpage==-1){
+                currpage=1;
+                pageBean=clothService.queryByPage(bid,pageSize,currpage);
+                //显示
+                brandScreen.showPageBean(pageBean);
+            }
+            //让用户选择显示那个页面
+            currpage=brandScreen.getCurrentPage(pageBean);
+            //输入合法的情况下
+            if(currpage>=1 && currpage <=pageBean.getTotalPage()){
+                pageBean=clothService.queryByPage(bid,pageSize,currpage);
+                //显示
+                brandScreen.showPageBean(pageBean);
+            }
+            //非法显示
+            else{
+//这里跳转到品牌分类页面    toCategoryPage();
+                break;
+            }
+        }
+
+
+    }
+
+    public static void main4(String[] args) {
+
     }
 }
