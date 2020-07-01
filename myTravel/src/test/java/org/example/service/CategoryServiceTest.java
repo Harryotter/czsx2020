@@ -1,10 +1,8 @@
 package org.example.service;
 
 
-import org.example.bean.Category;
-import org.example.bean.User;
+import org.example.p04bean.Category;
 import org.example.p02service.CategoryService;
-import org.example.p02service.UserService;
 import org.junit.Test;
 
 import java.util.List;

@@ -1,7 +1,7 @@
 package org.example.p02service;
 
 import org.example.p03Dao.UserDao;
-import org.example.bean.User;
+import org.example.p04bean.User;
 
 //service业务层，调用数据访问层
 public class UserService {

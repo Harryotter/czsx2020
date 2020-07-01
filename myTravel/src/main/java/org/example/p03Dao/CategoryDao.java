@@ -1,10 +1,9 @@
 package org.example.p03Dao;
 
-import org.example.bean.Category;
+import org.example.p04bean.Category;
 import org.example.util.JdbcTemplateUtil;
 import org.springframework.jdbc.core.RowMapper;
 
-import javax.swing.tree.TreePath;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;

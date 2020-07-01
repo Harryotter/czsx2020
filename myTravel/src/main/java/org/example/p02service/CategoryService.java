@@ -1,6 +1,6 @@
 package org.example.p02service;
 
-import org.example.bean.Category;
+import org.example.p04bean.Category;
 import org.example.p03Dao.CategoryDao;
 
 import java.util.List;

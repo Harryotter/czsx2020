@@ -1,20 +1,8 @@
 package org.example.p03Dao;
 
 
-import com.alibaba.druid.pool.DruidDataSource;
-import com.alibaba.druid.pool.DruidDataSourceFactory;
-import org.example.bean.User;
+import org.example.p04bean.User;
 import org.example.util.JdbcTemplateUtil;
-import org.springframework.jdbc.core.JdbcTemplate;
-
-import javax.sql.DataSource;
-import java.io.InputStream;
-import java.io.PrintWriter;
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.sql.SQLFeatureNotSupportedException;
-import java.util.Properties;
-import java.util.logging.Logger;
 
 public class UserDao {
 //    public void save(){

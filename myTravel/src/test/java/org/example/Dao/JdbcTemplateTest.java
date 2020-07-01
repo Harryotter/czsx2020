@@ -2,16 +2,14 @@ package org.example.Dao;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import com.alibaba.druid.pool.DruidDataSourceFactory;
-import org.example.bean.User;
+import org.example.p04bean.User;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 
 import javax.sql.DataSource;
-import java.io.IOException;
 import java.io.InputStream;
-import java.rmi.server.RMIClassLoader;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Properties;

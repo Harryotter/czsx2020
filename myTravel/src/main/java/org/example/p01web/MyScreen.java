@@ -1,6 +1,6 @@
 package org.example.p01web;
 
-import org.example.bean.User;
+import org.example.p04bean.User;
 
 import java.util.Scanner;
 

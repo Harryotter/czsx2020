@@ -1,6 +1,6 @@
 package org.example.service;
 
-import org.example.bean.User;
+import org.example.p04bean.User;
 import org.example.p02service.UserService;
 import org.junit.Test;
 
