@@ -50,9 +50,27 @@ public class ClothDao {
         int start=(currentPage-1)*pageSize;
         int num=pageSize;
         //sql 注意limit上限的用法
-        String sql="SELECT * FROM tab_cloth WHERE bid=? LIMIT ?,?;";
+        String sql="SELECT * FROM tab_cloth WHERE bid=? LIMIT ?,?";
         //执行
         List<Cloth> list=JdbcTemplateUtil.getJdbcTemplate().query(sql,new Object[]{bid,start,num},mapper);
         return list;
+    }
+
+    public int findCountByKeyword(String keyword) throws Exception {
+        //sql语句
+        String sql="SELECT COUNT(*) FROM tab_cloth WHERE hname LIKE ?";
+        //执行
+        int count = JdbcTemplateUtil.getJdbcTemplate().queryForObject(sql,new Object[]{"%"+keyword+"%"}, Integer.class);
+        return count;
+    }
+
+    public List<Cloth> findPageByKeyword(String keyword, int pageSize, int currentPage) throws Exception {
+        //sql语句
+        String sql="SELECT * FROM tab_cloth WHERE hname LIKE ? LIMIT ?,?";
+        int start=(currentPage-1)*pageSize;
+        //执行
+        List<Cloth> list=JdbcTemplateUtil.getJdbcTemplate().query(sql, new Object[]{"%"+keyword+"%",start,pageSize},mapper);
+        return list;
+
     }
 }
